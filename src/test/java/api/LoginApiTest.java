@@ -1,7 +1,7 @@
 package api;
 
 import api.model.User;
-import api.pojoobject.MessageFailedLogin;
+import api.pojo.MessageFailedLogin;
 import api.service.UserLoginService;
 import api.utils.ConstantsApi;
 import api.utils.CreateUser;

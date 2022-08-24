@@ -1,7 +1,7 @@
 package api.service;
 
 import api.model.ProfileUser;
-import api.pojoobject.EditUserProfile;
+import api.pojo.EditUserProfile;
 import api.specification.Specifications;
 import api.utils.ConstantsApi;
 

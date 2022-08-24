@@ -1,7 +1,7 @@
 package api;
 
 import api.model.ProfileUser;
-import api.pojoobject.EditUserProfile;
+import api.pojo.EditUserProfile;
 import api.service.UserProfileService;
 import api.utils.CreateUserProfile;
 import org.testng.Assert;
