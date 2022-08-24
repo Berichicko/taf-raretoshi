@@ -1,7 +1,7 @@
 package api.utils;
 
 import api.model.User;
-import api.pojoobject.Root;
+import api.pojo.Root;
 import api.specification.Specifications;
 import static io.restassured.RestAssured.given;
 
