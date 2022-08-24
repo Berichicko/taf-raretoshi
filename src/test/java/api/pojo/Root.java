@@ -1,4 +1,4 @@
-package api.pojoobject;
+package api.pojo;
 
 import lombok.AllArgsConstructor;
 import lombok.Builder;
@@ -9,6 +9,6 @@ import lombok.NoArgsConstructor;
 @AllArgsConstructor
 @NoArgsConstructor
 @Builder
-public class MessageFailedLogin {
-    private String message;
+public class Root {
+    private String jwt_token;
 }
