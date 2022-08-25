@@ -8,14 +8,14 @@ import api.utils.CreateUser;
 import org.testng.Assert;
 import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
-import ui.TestListener;
+import ui.listener.TestListener;
 
 @Listeners({TestListener.class})
 public class LoginApiTest extends CreateUser {
+    String expectedErrorMessage = "Login failed";
 
     @Test
     public void testLoginUserEmptyNamePassword() {
-        String expectedErrorMessage = "Login failed";
         User user = createNewUserNotValidEmptyNamePassword();
         MessageFailedLogin messageFailedLogin = new UserLoginService().postLoginUserWithNotCorrectData(user);
         Assert.assertEquals(expectedErrorMessage, messageFailedLogin.getMessage());
@@ -24,7 +24,6 @@ public class LoginApiTest extends CreateUser {
 
     @Test
     public void testLoginUserNotValidNamePasswordRandomValues() {
-        String expectedErrorMessage = "Login failed";
         User user = createNewUserNotValidNamePasswordRandomValues();
         MessageFailedLogin messageFailedLogin = new UserLoginService().postLoginUserWithNotCorrectData(user);
         Assert.assertEquals(expectedErrorMessage, messageFailedLogin.getMessage());
@@ -33,7 +32,6 @@ public class LoginApiTest extends CreateUser {
 
     @Test
     public void testLoginUserNotValidEmailPasswordRandomValues() {
-        String expectedErrorMessage = "Login failed";
         User user = createNewUserNotValidEmailPasswordRandomValues();
         MessageFailedLogin messageFailedLogin = new UserLoginService().postLoginUserWithNotCorrectData(user);
         Assert.assertEquals(expectedErrorMessage, messageFailedLogin.getMessage());

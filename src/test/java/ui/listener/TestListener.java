@@ -1,4 +1,4 @@
-package ui;
+package ui.listener;
 
 import io.qameta.allure.Attachment;
 import org.apache.logging.log4j.LogManager;
