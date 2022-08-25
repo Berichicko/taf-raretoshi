@@ -3,23 +3,33 @@ package ui.driver;
 import io.github.bonigarcia.wdm.WebDriverManager;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.chrome.ChromeDriver;
+import org.openqa.selenium.chrome.ChromeOptions;
 
 public class DriverSingleton {
-    private static WebDriver driver;
+    private static ThreadLocal<WebDriver> tdriver  = new ThreadLocal<WebDriver>();
+    protected static WebDriver driver;
+    private static ChromeOptions chromeOptions;
 
     private DriverSingleton() {
     }
 
-    public static WebDriver getDriver() {
+    public static WebDriver initializeDriver() {
         if (driver == null) {
             WebDriverManager.chromedriver()
                     .setup();
-            driver = new ChromeDriver();
-            driver.manage()
-                    .window()
-                    .maximize();
+            chromeOptions = new ChromeOptions()
+                    .addArguments("--headless")
+                    .addArguments("--window-size=1920,1200");
+            driver = new ChromeDriver(chromeOptions);
+
+            tdriver.set(driver);
+
         }
-        return driver;
+        return getDriver();
+    }
+
+    public static synchronized WebDriver getDriver() {
+        return tdriver.get();
     }
 
     public static void closeDriver() {

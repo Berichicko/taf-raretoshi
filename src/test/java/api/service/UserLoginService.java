@@ -5,13 +5,12 @@ import api.pojo.MessageFailedLogin;
 import api.pojo.SuccessLogInUser;
 import api.specification.Specifications;
 import api.utils.ConstantsApi;
-
 import static io.restassured.RestAssured.given;
 
 public class UserLoginService {
 
-    public MessageFailedLogin postLoginUserWithNotCorrectData(User user) {
-        Specifications.installSpecification(Specifications.requestSpecification(),
+        public MessageFailedLogin postLoginUserWithNotCorrectData(User user) {
+               Specifications.installSpecification(Specifications.requestSpecification(),
                 Specifications.responseSpecification(500));
        MessageFailedLogin messageFailedLogin  = given()
                 .body(user)

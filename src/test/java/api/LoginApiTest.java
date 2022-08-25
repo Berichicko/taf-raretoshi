@@ -6,8 +6,11 @@ import api.service.UserLoginService;
 import api.utils.ConstantsApi;
 import api.utils.CreateUser;
 import org.testng.Assert;
+import org.testng.annotations.Listeners;
 import org.testng.annotations.Test;
+import ui.TestListener;
 
+@Listeners({TestListener.class})
 public class LoginApiTest extends CreateUser {
 
     @Test
@@ -38,7 +41,7 @@ public class LoginApiTest extends CreateUser {
     }
 
     @Test
-    public void testLoginUserCorrectEmailPassword() {
+    public void testLoginUserUserCorrectEmailPassword() {
         UserLoginService userLoginService = new UserLoginService();
         String expectedEmailUserLogin = ConstantsApi.USER_EMAIL;
         User user = createNewUserCorrectEmailPassword();

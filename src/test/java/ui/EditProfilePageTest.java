@@ -1,15 +1,22 @@
 package ui;
 
+import io.qameta.allure.Description;
+import io.qameta.allure.Owner;
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
 import org.testng.annotations.Test;
 import ui.page.AuthorizedPage;
+import ui.page.BasePage;
 import ui.page.EditProfilePage;
 import ui.steps.AuthorizeUserProfileStep;
 import ui.utils.RandomApi;
 import ui.utils.UserProfileCreator;
 
 public class EditProfilePageTest extends BaseTest {
+
+
 
     @BeforeMethod
     public void openPageEditProfile() {
@@ -38,8 +45,11 @@ public class EditProfilePageTest extends BaseTest {
     }
 
     @Test
+    @Owner("Aliaksandr Zasinets")
+    @Description("Check for valid user values when editing your profile")
     public void testEditProfileWithCorrectCredentials() {
-        String expectedResultMessageProfileUpdated = "Profile updated";
+        logger.info("Start test");
+         String expectedResultMessageProfileUpdated = "Profile updated";
 
         EditProfilePage editProfilePage = new EditProfilePage();
         editProfilePage
@@ -63,7 +73,6 @@ public class EditProfilePageTest extends BaseTest {
     @Test
     public void testEditProfileWithInCorrectEmail() {
         String expectedResultMessageInvalidEmail = "Invalid email";
-
         EditProfilePage editProfilePage = new EditProfilePage();
         editProfilePage
                 .clearInputFieldUserProfile()

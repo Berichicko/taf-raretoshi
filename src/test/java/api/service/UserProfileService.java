@@ -4,7 +4,6 @@ import api.model.ProfileUser;
 import api.pojo.EditUserProfile;
 import api.specification.Specifications;
 import api.utils.ConstantsApi;
-
 import static io.restassured.RestAssured.given;
 
 public class UserProfileService {

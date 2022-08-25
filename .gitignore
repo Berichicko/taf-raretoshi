@@ -6,6 +6,10 @@ gradlew.bat
 gradle-wrapper.properties
 *.jar
 
+# Log file
+*.log
+/logs/
+
 ### IntelliJ IDEA ###
 .idea/modules.xml
 .idea/jarRepositories.xml

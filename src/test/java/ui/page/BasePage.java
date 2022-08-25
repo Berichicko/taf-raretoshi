@@ -1,5 +1,7 @@
 package ui.page;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
 import org.openqa.selenium.TimeoutException;
 import org.openqa.selenium.WebDriver;
 import org.openqa.selenium.WebElement;
@@ -9,12 +11,14 @@ import org.openqa.selenium.support.ui.WebDriverWait;
 import org.testng.Assert;
 import ui.driver.DriverSingleton;
 
+
 public class BasePage {
     protected final int WAIT_TIMEOUT_SECONDS = 10;
     protected WebDriver driver;
+    protected static final Logger logger = LogManager.getLogger();
 
     protected BasePage() {
-        driver = DriverSingleton.getDriver();
+        driver = DriverSingleton.initializeDriver();
         PageFactory.initElements(driver, this);
 
     }
@@ -25,7 +29,8 @@ public class BasePage {
             isWebElementNotVisible = new WebDriverWait(driver, WAIT_TIMEOUT_SECONDS).until(ExpectedConditions
                     .invisibilityOf(webElement));
         } catch (TimeoutException e) {
-            isWebElementNotVisible = true;
+            logger.error("error {}",e.getMessage());
+             isWebElementNotVisible = true;
         }
         return isWebElementNotVisible;
     }

@@ -1,5 +1,6 @@
 plugins {
     id 'io.franzbecker.gradle-lombok' version '1.14'
+    id "io.qameta.allure" version "2.10.0"
     id 'java'
 }
 
@@ -22,11 +23,20 @@ tasks.withType(JavaCompile) {
 }
 
 dependencies {
+    runtimeOnly group: 'org.aspectj', name: 'aspectjweaver', version: '1.9.6'
     testImplementation 'org.testng:testng:6.14.3'
     testImplementation 'io.rest-assured:rest-assured:4.4.0'
     implementation 'io.github.bonigarcia:webdrivermanager:3.8.1'
     implementation 'org.seleniumhq.selenium:selenium-java:3.141.59'
+    implementation 'com.fasterxml.jackson.core:jackson-annotations:2.13.2'
     implementation 'org.apache.commons:commons-lang3:3.12.0'
+    testImplementation group: 'org.apache.logging.log4j', name: 'log4j-core', version: '2.17.1'
+    testImplementation group: 'org.apache.logging.log4j', name: 'log4j-api', version: '2.17.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-java-commons', version: '2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-testng', version: '2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-commandline', version: '2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-assertj', version: '2.12.1'
+    testImplementation group: 'io.qameta.allure', name: 'allure-rest-assured', version: '2.12.1'
 }
 
 test {

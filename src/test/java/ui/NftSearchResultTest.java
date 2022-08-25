@@ -1,5 +1,7 @@
 package ui;
 
+import org.slf4j.Logger;
+import org.slf4j.LoggerFactory;
 import org.testng.annotations.Test;
 import ui.page.HomePage;
 import ui.page.MarketPage;
@@ -10,11 +12,11 @@ import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;
 
 public class NftSearchResultTest extends BaseTest {
+    private static final Logger logger = LoggerFactory.getLogger(EditProfilePageTest.class);
 
 
     @Test
     public void testSearchWithEmptyQuery() {
-
         String expectedMessageSearchNothingMatched = "Nothing matched that search string";
         HomePage homePage = new HomePage();
 
@@ -60,7 +62,6 @@ public class NftSearchResultTest extends BaseTest {
 
     @Test
     public void testSearchWithResultPartPresentNameNft() {
-
         String inputUserCorrectPartSearchQueryIsPresentNft = "CAT";
         int resultPartSearchQueryIsPresentNft;
 
@@ -72,7 +73,7 @@ public class NftSearchResultTest extends BaseTest {
         MarketPage marketPage = new MarketPage();
         resultPartSearchQueryIsPresentNft = marketPage.getNameNftMarket(inputUserCorrectPartSearchQueryIsPresentNft).size();
 
-        System.out.println("Amount of NFT " + resultPartSearchQueryIsPresentNft);
+        logger.info("Amount of NFT " + resultPartSearchQueryIsPresentNft);
         assertNotEquals(resultPartSearchQueryIsPresentNft, 0,
                 "Amount of NFT matches by searching for part of the real NFT name");
 
