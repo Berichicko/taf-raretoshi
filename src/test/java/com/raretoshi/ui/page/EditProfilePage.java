@@ -7,7 +7,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class EditProfilePage extends BasePage {
 
-    private CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.CONTROL, Keys.SHIFT, Keys.UP), Keys.DELETE};
+    private final CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.CONTROL, Keys.SHIFT, Keys.UP), Keys.DELETE};
     @FindBy(xpath = "//h2[contains(text(), 'Edit Profile')]")
     private WebElement labelEditProfile;
     @FindBy(xpath = "//label[@for='name']")
@@ -17,7 +17,7 @@ public class EditProfilePage extends BasePage {
     @FindBy(xpath = "//img[@alt='lovely avatar']")
     private WebElement avatarUser;
     @FindBy(xpath = "//input[@placeholder='Full Name']")
-    private WebElement inputlName;
+    private WebElement inputName;
     @FindBy(xpath = "//input[@placeholder='Username']")
     private WebElement inputUsrername;
     @FindBy(xpath = "//input[@placeholder='email@example.com']")
@@ -60,13 +60,13 @@ public class EditProfilePage extends BasePage {
 
     public EditProfilePage clearName() {
         waitForVisibilityOfElement(buttonSaveDetails);
-        clearInputField(inputlName);
+        clearInputField(inputName);
         return this;
     }
 
     public EditProfilePage typeName(String name) {
         waitForVisibilityOfElement(buttonSaveDetails);
-        inputlName.sendKeys(name);
+        inputName.sendKeys(name);
         return this;
     }
 
@@ -141,7 +141,7 @@ public class EditProfilePage extends BasePage {
     }
 
     public EditProfilePage clickButtonSaveDetails() {
-        buttonSaveDetails.click();
+        waitForElementToBeClickable(buttonSaveDetails).click();
         return this;
     }
 
@@ -169,8 +169,8 @@ public class EditProfilePage extends BasePage {
     }
 
     public EditProfilePage clearInputFieldUserProfile() {
-        waitForVisibilityOfElement(avatarUser);
-        clearInputField(inputlName);
+        waitForVisibilityOfElement(buttonSaveDetails);
+        clearInputField(inputName);
         clearInputField(inputUsrername);
         clearInputField(inputEmail);
         clearInputField(inputTwitter);

@@ -8,7 +8,7 @@ import org.openqa.selenium.support.FindBy;
 
 public class LoginPage extends BasePage {
 
-    private CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE};
+    private final CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.SHIFT, Keys.HOME), Keys.DELETE};
 
     @FindBy(xpath = "//label[text()='Email or username']")
     private WebElement labelEmailUsername;

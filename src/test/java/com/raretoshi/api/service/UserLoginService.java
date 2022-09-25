@@ -12,7 +12,7 @@ public class UserLoginService {
     public MessageFailedLogin postLoginUserWithNotCorrectData(User user) {
         Specifications.installSpecification(Specifications.requestSpecification(),
                 Specifications.responseSpecification(500));
-        MessageFailedLogin messageFailedLogin = given()
+        return given()
                 .body(user)
                 .post(Endpoint.LOGIN_USER)
                 .then()
@@ -20,7 +20,6 @@ public class UserLoginService {
                 .all()
                 .extract()
                 .as(MessageFailedLogin.class);
-        return messageFailedLogin;
     }
 
     public String postLoginUserWithCorrectData(User user) {

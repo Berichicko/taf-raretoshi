@@ -6,28 +6,23 @@ import org.apache.commons.lang3.RandomStringUtils;
 public class CreateUser {
 
     public static String setUserName() {
-        String userName = RandomStringUtils.randomAlphabetic(10);
-        return userName;
+        return RandomStringUtils.randomAlphabetic(10);
     }
 
     public static String setUserPassword() {
-        String userPassword = RandomStringUtils.randomAlphanumeric(10);
-        return userPassword;
+        return RandomStringUtils.randomAlphanumeric(10);
     }
 
     public static String setNotValidEmptyUserName() {
-        String userName = "";
-        return userName;
+        return "";
     }
 
     public static String setNotValidEmptyPassword() {
-        String userPassword = "";
-        return userPassword;
+        return "";
     }
 
     public static String setUserEmail() {
-        String userEmail = RandomStringUtils.randomAlphabetic(10) + "@gmail.com";
-        return userEmail;
+        return RandomStringUtils.randomAlphabetic(10) + "@gmail.com";
     }
 
     public static User createNewUserCorrectEmailPassword() {

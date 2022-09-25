@@ -10,7 +10,7 @@ import org.openqa.selenium.support.FindBy;
 import java.util.List;
 
 public class HomePage extends BasePage {
-    private CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.CONTROL, Keys.SHIFT, Keys.UP), Keys.DELETE};
+    private final CharSequence[] charSequencesDeleteAll = {Keys.chord(Keys.CONTROL, Keys.SHIFT, Keys.UP), Keys.DELETE};
     private final By IMAGE_CARD_ARTWORK = By.xpath("//img[@class=' svelte-a8mb6d']");
     private final By NAME_CARD_ARTWORK_RECENT_ACTIVITY = By.xpath("//div[@class='recentCard flex-grow flex svelte-1pvmnl9']");
     private final By NAME_CARD_ARTWORK_LATEST_PIECES = By.xpath("//div[@class='p-4']");
@@ -139,6 +139,7 @@ public class HomePage extends BasePage {
         for (WebElement elements : elementImageCardArtwork) {
             if (!elements.isDisplayed()) {
                 LOGGER.info(elements.getLocation());
+                return false;
             }
         }
         return true;
@@ -149,6 +150,7 @@ public class HomePage extends BasePage {
         for (WebElement elements : elementNameCardArtworkRecentActivity) {
             if (!elements.isDisplayed()) {
                 LOGGER.info(elements.getLocation());
+                return false;
             }
         }
         return true;
@@ -159,6 +161,7 @@ public class HomePage extends BasePage {
         for (WebElement elements : elementNameCardArtworkLatestPieces) {
             if (!elements.isDisplayed()) {
                 LOGGER.info(elements.getLocation());
+                return false;
             }
         }
         return true;

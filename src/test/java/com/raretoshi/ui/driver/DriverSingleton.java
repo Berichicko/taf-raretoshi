@@ -8,35 +8,31 @@ import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class DriverSingleton {
-    private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
-    protected static WebDriver driver;
-    private static ChromeOptions chromeOptions;
-    private static EventFiringWebDriver eventFiringWebDriver;
 
-    private DriverSingleton() {
+  private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
+  protected static WebDriver driver;
+
+  public static WebDriver initializeDriver() {
+    if (driver == null) {
+      WebDriverManager.chromedriver()
+          .setup();
+      ChromeOptions chromeOptions = new ChromeOptions()
+          .addArguments("--headless", "--window-size=1920,1200");
+      driver = new ChromeDriver(chromeOptions);
+      EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
+      eventFiringWebDriver.register(new WebEventListener());
+      threadLocalDriver.set(eventFiringWebDriver);
+
     }
+    return getDriver();
+  }
 
-    public static WebDriver initializeDriver() {
-        if (driver == null) {
-            WebDriverManager.chromedriver()
-                    .setup();
-            chromeOptions = new ChromeOptions()
-                    .addArguments("--headless", "--window-size=1920,1200");
-            driver = new ChromeDriver(chromeOptions);
-            eventFiringWebDriver = new EventFiringWebDriver(driver);
-            eventFiringWebDriver.register(new WebEventListener());
-            threadLocalDriver.set(eventFiringWebDriver);
+  public static synchronized WebDriver getDriver() {
+    return threadLocalDriver.get();
+  }
 
-        }
-        return getDriver();
-    }
-
-    public static synchronized WebDriver getDriver() {
-        return threadLocalDriver.get();
-    }
-
-    public static void closeDriver() {
-        driver.quit();
-        driver = null;
-    }
+  public static void closeDriver() {
+    driver.quit();
+    driver = null;
+  }
 }
