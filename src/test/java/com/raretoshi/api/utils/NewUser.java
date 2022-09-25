@@ -3,7 +3,7 @@ package com.raretoshi.api.utils;
 import com.raretoshi.api.model.User;
 import org.apache.commons.lang3.RandomStringUtils;
 
-public class CreateUser {
+public class NewUser {
 
     public static String setUserName() {
         return RandomStringUtils.randomAlphabetic(10);
@@ -30,18 +30,18 @@ public class CreateUser {
                 UserData.PASSWORD);
     }
 
-    public User createNewUserNotValidNamePasswordRandomValues() {
-        return new User(CreateUser.setUserName(),
-                CreateUser.setUserPassword());
+    public static User createNewUserNotValidNamePasswordRandomValues() {
+        return new User(NewUser.setUserName(),
+                NewUser.setUserPassword());
     }
 
-    public User createNewUserNotValidEmptyNamePassword() {
-        return new User(CreateUser.setNotValidEmptyUserName(),
-                CreateUser.setNotValidEmptyPassword());
+    public static User createNewUserNotValidEmptyNamePassword() {
+        return new User(NewUser.setNotValidEmptyUserName(),
+                NewUser.setNotValidEmptyPassword());
     }
 
-    public User createNewUserNotValidEmailPasswordRandomValues() {
-        return new User(CreateUser.setUserEmail(),
-                CreateUser.setUserPassword());
+    public static User createNewUserNotValidEmailPasswordRandomValues() {
+        return new User(NewUser.setUserEmail(),
+                NewUser.setUserPassword());
     }
 }

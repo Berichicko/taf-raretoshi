@@ -6,7 +6,7 @@ import com.raretoshi.api.specification.Specifications;
 
 import static io.restassured.RestAssured.given;
 
-public class Token extends CreateUser {
+public class Token extends NewUser {
 
     protected static String getToken() {
         Specifications.installSpecification(Specifications.requestSpecification(),
