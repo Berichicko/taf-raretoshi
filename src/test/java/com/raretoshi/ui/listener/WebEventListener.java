@@ -20,11 +20,11 @@ public class WebEventListener implements WebDriverEventListener {
     }
 
     public void beforeClickOn(WebElement element, WebDriver driver) {
-        LOGGER.debug("Trying to click on: " + element.toString());
+        LOGGER.info("Trying to click on: " + element.toString());
     }
 
     public void afterClickOn(WebElement element, WebDriver driver) {
-        LOGGER.debug("Clicked on: " + element.toString());
+        LOGGER.info("Clicked on: " + element.toString());
     }
 
     public void beforeNavigateBack(WebDriver driver) {
@@ -44,11 +44,11 @@ public class WebEventListener implements WebDriverEventListener {
     }
 
     public void beforeFindBy(By by, WebElement element, WebDriver driver) {
-        LOGGER.debug("Trying to find Element By : " + by.toString());
+        LOGGER.info("Trying to find Element By : " + by.toString());
     }
 
     public void afterFindBy(By by, WebElement element, WebDriver driver) {
-        LOGGER.debug("Found Element By : " + by.toString());
+        LOGGER.info("Found Element By : " + by.toString());
     }
 
     public void beforeScript(String script, WebDriver driver) {

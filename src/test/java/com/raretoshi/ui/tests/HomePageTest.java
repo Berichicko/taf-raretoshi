@@ -1,4 +1,4 @@
-package com.raretoshi.ui;
+package com.raretoshi.ui.tests;
 
 import com.raretoshi.ui.page.HomePage;
 import org.testng.Assert;

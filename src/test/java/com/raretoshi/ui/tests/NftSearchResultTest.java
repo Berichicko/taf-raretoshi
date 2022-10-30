@@ -1,4 +1,4 @@
-package com.raretoshi.ui;
+package com.raretoshi.ui.tests;
 
 import static org.testng.Assert.assertEquals;
 import static org.testng.Assert.assertNotEquals;

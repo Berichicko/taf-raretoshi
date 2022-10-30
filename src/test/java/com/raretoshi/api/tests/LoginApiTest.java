@@ -1,4 +1,4 @@
-package com.raretoshi.api;
+package com.raretoshi.api.tests;
 
 import com.raretoshi.api.listener.LogListenerApi;
 import com.raretoshi.api.pojo.MessageFailedLogin;

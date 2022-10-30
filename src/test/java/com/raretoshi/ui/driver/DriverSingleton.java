@@ -17,7 +17,7 @@ public class DriverSingleton {
       WebDriverManager.chromedriver()
           .setup();
       ChromeOptions chromeOptions = new ChromeOptions()
-          .addArguments("--headless", "--window-size=1920,1200");
+          .addArguments( "--start-maximized","--incognito");
       driver = new ChromeDriver(chromeOptions);
       EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
       eventFiringWebDriver.register(new WebEventListener());

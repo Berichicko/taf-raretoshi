@@ -6,10 +6,11 @@ import com.raretoshi.ui.utils.UserCreator;
 
 public class AuthorizeUserProfileStep {
 
-    public static AuthorizedPage authorizedUserProfile() {
-        return new HomePage()
-                .clickSignIn()
-                .authorize(UserCreator.createDefaultUser())
-                .clickButtonAuthorizedUser();
-    }
+  public static AuthorizedPage authorizedUserProfile() {
+    return new HomePage()
+        .clickSignIn()
+        .authorize(UserCreator.createDefaultUser())
+        .clickButtonAuthorizedUser();
+  }
+
 }

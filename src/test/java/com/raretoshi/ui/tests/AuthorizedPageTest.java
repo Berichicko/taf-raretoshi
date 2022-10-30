@@ -1,4 +1,4 @@
-package com.raretoshi.ui;
+package com.raretoshi.ui.tests;
 
 import org.testng.Assert;
 import org.testng.annotations.BeforeMethod;
