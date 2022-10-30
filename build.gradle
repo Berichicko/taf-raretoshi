@@ -42,3 +42,9 @@ dependencies {
 test {
     useTestNG()
 }
+
+task testSmoke(type: Test) {
+    useTestNG() {
+        suites "src/test/resources/SmokeSuite.xml"
+    }
+}
