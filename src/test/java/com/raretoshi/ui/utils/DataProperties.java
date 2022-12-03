@@ -13,7 +13,7 @@ public class DataProperties {
         String login = null;
         String password = null;
         try {
-            fileInputStream = new FileInputStream("src/test/resources/config.properties");
+            fileInputStream = new FileInputStream("src/test/resources/config_credentials.properties");
             property.load(fileInputStream);
             host = property.getProperty("db.host");
             login = property.getProperty("db.login");
