@@ -6,6 +6,6 @@ public class Constants {
     public static final int FLUENT_WAITS_TIMEOUT_SECONDS = 35;
     public static final String PROFILE_USER_URL = BASE_URL + Random.USER_NAME;
     public static final String LOGIN_URL = BASE_URL+"login";
-    public static final String MINIMUM_BID = "0.0000083";
+    public static final String MINIMUM_BID = "0.000008";
     public static final String EMPTY_BID = "";
 }

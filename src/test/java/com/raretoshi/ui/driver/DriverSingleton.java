@@ -1,10 +1,10 @@
 package com.raretoshi.ui.driver;
 
+import com.raretoshi.ui.browser.WebDriverFactory;
 import com.raretoshi.ui.listener.WebEventListener;
-import io.github.bonigarcia.wdm.WebDriverManager;
+import com.raretoshi.ui.utils.JsonReaderUtils;
+import io.github.bonigarcia.wdm.DriverManagerType;
 import org.openqa.selenium.WebDriver;
-import org.openqa.selenium.chrome.ChromeDriver;
-import org.openqa.selenium.chrome.ChromeOptions;
 import org.openqa.selenium.support.events.EventFiringWebDriver;
 
 public class DriverSingleton {
@@ -14,15 +14,16 @@ public class DriverSingleton {
 
   public static WebDriver initializeDriver() {
     if (driver == null) {
-      WebDriverManager.chromedriver()
-          .setup();
-      ChromeOptions chromeOptions = new ChromeOptions()
-          .addArguments( "--start-maximized","--incognito");
-      driver = new ChromeDriver(chromeOptions);
+//      WebDriverManager.chromedriver()
+//          .setup();
+//      ChromeOptions chromeOptions = new ChromeOptions()
+//          .addArguments( "--start-maximized","--incognito");
+//      driver = new ChromeDriver(chromeOptions);
+
+      driver = WebDriverFactory.createDriver(DriverManagerType.valueOf(JsonReaderUtils.getValueByKey("browser_name").toUpperCase()));
       EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
       eventFiringWebDriver.register(new WebEventListener());
       threadLocalDriver.set(eventFiringWebDriver);
-
     }
     return getDriver();
   }
