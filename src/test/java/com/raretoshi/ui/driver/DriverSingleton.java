@@ -14,12 +14,6 @@ public class DriverSingleton {
 
   public static WebDriver initializeDriver() {
     if (driver == null) {
-//      WebDriverManager.chromedriver()
-//          .setup();
-//      ChromeOptions chromeOptions = new ChromeOptions()
-//          .addArguments( "--start-maximized","--incognito");
-//      driver = new ChromeDriver(chromeOptions);
-
       driver = WebDriverFactory.createDriver(DriverManagerType.valueOf(JsonReaderUtils.getValueByKey("browser_name").toUpperCase()));
       EventFiringWebDriver eventFiringWebDriver = new EventFiringWebDriver(driver);
       eventFiringWebDriver.register(new WebEventListener());

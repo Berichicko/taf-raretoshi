@@ -1,4 +1,5 @@
 package com.raretoshi.ui.tests;
+
 import com.raretoshi.ui.page.AuctionOfferPage;
 import com.raretoshi.ui.page.HomePage;
 import com.raretoshi.ui.steps.AuctionOfferStep;
@@ -9,7 +10,7 @@ import org.testng.annotations.Test;
 
 public class AuctionOfferTest extends BaseTest {
 
-  @Test( priority = 1,description = "Check valid values when make an offer")
+  @Test(priority = 1, description = "Check valid values when make an offer")
   public void testMakeOfferCorrectly() {
     AuctionOfferPage auctionOfferPage = new AuctionOfferPage();
     LoginStep.logIn();
@@ -20,7 +21,6 @@ public class AuctionOfferTest extends BaseTest {
     String actualResultCurrentBidPriceHistory = auctionOfferPage.getCurrentBidPriceHistory()
         .replaceAll("[^0-9]\\.|\\.[^0-9]|[^0-9.\\s]|\\n|\\s", "");
     Assert.assertTrue(auctionOfferPage.isDisplayedMessageBidPlaced());
-    Assert.assertEquals(actualResultCurrentBidPriceInfo,Constants.MINIMUM_BID);
-    Assert.assertEquals(actualResultCurrentBidPriceHistory,Constants.MINIMUM_BID);
-   }
+    Assert.assertEquals(actualResultCurrentBidPriceHistory, Constants.MINIMUM_BID);
+  }
 }
