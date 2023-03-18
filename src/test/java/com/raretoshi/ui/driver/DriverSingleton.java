@@ -10,7 +10,7 @@ import org.openqa.selenium.support.events.EventFiringWebDriver;
 public class DriverSingleton {
 
   private static final ThreadLocal<WebDriver> threadLocalDriver = new ThreadLocal<WebDriver>();
-  protected static WebDriver driver;
+  private static WebDriver driver;
 
   public static WebDriver initializeDriver() {
     if (driver == null) {

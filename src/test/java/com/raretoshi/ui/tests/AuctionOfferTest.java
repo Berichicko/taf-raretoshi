@@ -7,11 +7,13 @@ import com.raretoshi.ui.steps.LoginStep;
 import com.raretoshi.ui.utils.Constants;
 import org.testng.Assert;
 import org.testng.annotations.Test;
+import org.testng.asserts.SoftAssert;
 
 public class AuctionOfferTest extends BaseTest {
 
   @Test(priority = 1, description = "Check valid values when make an offer")
   public void testMakeOfferCorrectly() {
+    SoftAssert softAssert = new SoftAssert();
     AuctionOfferPage auctionOfferPage = new AuctionOfferPage();
     LoginStep.logIn();
     new HomePage().enterArtworkForests();
@@ -20,7 +22,7 @@ public class AuctionOfferTest extends BaseTest {
         .replaceAll("[^0-9]\\.|\\.[^0-9]|[^0-9.\\s]|\\n|\\s", "");
     String actualResultCurrentBidPriceHistory = auctionOfferPage.getCurrentBidPriceHistory()
         .replaceAll("[^0-9]\\.|\\.[^0-9]|[^0-9.\\s]|\\n|\\s", "");
-    Assert.assertTrue(auctionOfferPage.isDisplayedMessageBidPlaced());
-    Assert.assertEquals(actualResultCurrentBidPriceHistory, Constants.MINIMUM_BID);
+    softAssert.assertTrue(auctionOfferPage.isDisplayedMessageBidPlaced());
+    softAssert.assertEquals(actualResultCurrentBidPriceHistory, Constants.MINIMUM_BID);
   }
 }

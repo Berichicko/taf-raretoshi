@@ -29,9 +29,10 @@ public class HomePageTest extends BaseTest {
   @Test
   public void testIsDisplayedImageNameCardArtwork() {
     HomePage homePage = new HomePage();
-    Assert.assertTrue(homePage.isDisplayedImageCardArtwork());
-    Assert.assertTrue(homePage.isDisplayedNameCardArtworkRecentActivity());
-    Assert.assertTrue(homePage.isDisplayedNameCardArtworkLatestPieces());
+    SoftAssert softAssert = new SoftAssert();
+    softAssert.assertTrue(homePage.isDisplayedImageCardArtwork());
+    softAssert.assertTrue(homePage.isDisplayedNameCardArtworkRecentActivity());
+    softAssert.assertTrue(homePage.isDisplayedNameCardArtworkLatestPieces());
 
   }
 
